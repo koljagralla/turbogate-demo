@@ -10,6 +10,7 @@ export class MyStack extends cdk.Stack {
     const itemsTable = createItemsDynamoDB(this);
 
     const myApiTurbogate = new MyApiTurbogate(this, {
+      openapi: {},
       environment: {
         ITEMS_TABLE_NAME: itemsTable.tableName,
         VALID_API_KEYS: 'my-api-key,another-api-key',

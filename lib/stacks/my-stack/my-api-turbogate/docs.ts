@@ -9,7 +9,13 @@ import { ApiDocs } from 'turbogate';
 
 export const docs: ApiDocs = {
   info: {
-    title: 'MY API',
+    title: 'Turbogate Example API',
     version: '0.0.0',
   },
+  servers: [
+    {
+      url: 'https://urapiid.execute-api.eu-central-1.amazonaws.com/prod', // <-- Change this to your API gateway base to use the API spec to make requests against your API.
+      description: 'Development server',
+    },
+  ],
 };
