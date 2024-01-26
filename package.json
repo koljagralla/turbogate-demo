@@ -8,7 +8,8 @@
     "build": "tsc",
     "watch": "tsc -w",
     "test": "jest",
-    "cdk": "cdk"
+    "cdk": "cdk",
+    "tgb": "yarn turbogate build -r lib/stacks/my-stack/my-api-turbogate && prettier lib/stacks/my-stack/my-api-turbogate -w"
   },
   "devDependencies": {
     "@asteasolutions/zod-to-openapi": "^6.3.1",
