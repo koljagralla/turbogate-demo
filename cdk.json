@@ -1,5 +1,5 @@
 {
-  "app": "npx ts-node --prefer-ts-exts bin/turbogate-demo.ts",
+  "app": "yarn tsx bin/turbogate-demo.ts",
   "watch": {
     "include": ["**"],
     "exclude": [
