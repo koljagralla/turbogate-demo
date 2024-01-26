@@ -16,6 +16,7 @@ export class MyStack extends cdk.Stack {
         VALID_API_KEYS: 'my-api-key,another-api-key',
       },
       permissions: {
+        ITEMS_TABLE_READ: lambda => itemsTable.grantReadData(lambda),
         ITEMS_TABLE_WRITE: lambda => itemsTable.grantWriteData(lambda),
       },
     });

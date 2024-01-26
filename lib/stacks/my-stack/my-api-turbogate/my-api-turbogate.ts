@@ -7,16 +7,18 @@ import { Construct } from 'constructs';
 import { AbstractTurbogate, OpenAPIProps, PermissionCallback, handleExtendZodWithOpenApi } from 'turbogate/local';
 import { z } from 'zod';
 import { apiGwConfig } from './config/api-gw-config';
-import { Environment as Environment1 } from './endpoints/items/create-item/environment';
-import { Environment as Environment2 } from './authorizer/apiKey/environment';
-import { permissions as permissions1 } from './endpoints/items/create-item/permissions';
-import { permissions as permissions2 } from './authorizer/apiKey/permissions';
+import { Environment as Environment1 } from './endpoints/items/get-item/environment';
+import { Environment as Environment2 } from './endpoints/items/create-item/environment';
+import { Environment as Environment3 } from './authorizer/apiKey/environment';
+import { permissions as permissions1 } from './endpoints/items/get-item/permissions';
+import { permissions as permissions2 } from './endpoints/items/create-item/permissions';
+import { permissions as permissions3 } from './authorizer/apiKey/permissions';
 
-type Resource = '/items';
-type OperationName = 'create-item';
+type Resource = '/items' | '/items/{id}';
+type OperationName = 'create-item' | 'get-item';
 type LambdaRequestAuthorizerName = 'apiKey';
-type EnvironmentVariableName = keyof (Environment1 & Environment2);
-type PermissionName = (typeof permissions1)[number] | (typeof permissions2)[number];
+type EnvironmentVariableName = keyof (Environment1 & Environment2 & Environment3);
+type PermissionName = (typeof permissions1)[number] | (typeof permissions2)[number] | (typeof permissions3)[number];
 export class MyApiTurbogate extends AbstractTurbogate<
   Resource,
   OperationName,
@@ -52,9 +54,16 @@ export class MyApiTurbogate extends AbstractTurbogate<
 
     super(scope, {
       apiName: apiName || 'my-api',
-      resources: ['/items'],
+      resources: ['/items', '/items/{id}'],
       rootDirectory: __dirname,
       operations: [
+        {
+          name: 'get-item',
+          path: '/items/{id}',
+          method: 'GET',
+          lambdaDirectoryPath: '/endpoints/items/get-item',
+          authorizer: undefined,
+        },
         {
           name: 'create-item',
           path: '/items',
