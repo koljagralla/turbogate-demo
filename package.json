@@ -28,7 +28,7 @@
     "constructs": "^10.0.0",
     "prettier": "^3.2.4",
     "source-map-support": "^0.5.21",
-    "turbogate": "^2.0.2",
+    "turbogate": "^2.0.3",
     "uuid": "^9.0.1",
     "zod": "^3.22.4"
   }

@@ -1477,10 +1477,10 @@ tsx@^4.7.0:
   optionalDependencies:
     fsevents "~2.3.3"
 
-turbogate@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/turbogate/-/turbogate-2.0.2.tgz#decee01596518c597a1f58f18bbd4be60213a243"
-  integrity sha512-VuNMuSTdMAlQ/862SfvRItaoaQHUl06zlsu9VPBtSIVyGTApqIb52N5a39EAGC0YuY5tb/ZYv6CVLA7AHUv3eA==
+turbogate@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/turbogate/-/turbogate-2.0.3.tgz#4e2b1ecbfbe7570964fedd8e447d69d2ca1da89d"
+  integrity sha512-zpwH71lj7UuDxxn/nQxPSfDHsShv3KW4+n/N/l+XtO1IPJIXF1Xiv0tJsnfdHakoBSrp769cyEEX+P0yxGhxAw==
   dependencies:
     "@types/js-yaml" "^4.0.9"
     commander "^11.1.0"
