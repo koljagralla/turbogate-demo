@@ -13,22 +13,12 @@ export async function main(
   environment: Environment,
   event: LambdaAuthorizerInputEvent,
 ): Promise<['accept', Context] | ['deny']> {
-  // // Example minimal implementation:
+  // Minimal example of an authorizer that accepts any request with a valid API key in the Authorization header.
+  // In a real world scenario you probably would not want to expose the API key to the business layer via context
+  // But for demonstration purposes this is fine.
+  if (environment.VALID_API_KEYS.includes(event.headers.Authorization)) {
+    return ['accept', { apiKey: event.headers.Authorization }];
+  }
 
-  // // Extract relevant information from the event
-  // const authHeaderValue = event.headers['my-custom-auth-header'];
-
-  // // Check if the auth header is what we expect
-  // if (authHeaderValue === 'my-expected-auth-value') {
-  //   // Grant access to the endpoint, include the required context
-  //   const context = {
-  //     myContextValue: 'my-context-value',
-  //   };
-  //   return ['accept', context];
-  // }
-
-  // // Deny access to the endpoint
-  // return ['deny'];
-
-  throw new Error('Not implemented');
+  return ['deny'];
 }

@@ -8,8 +8,8 @@
 import { AuthorizerDocs } from 'turbogate';
 
 export const docs: AuthorizerDocs = {
-  // Example docs for JWT Bearer auth.
   // See https://spec.openapis.org/oas/latest.html#security-scheme-object
-  type: 'http',
-  scheme: 'bearer',
+  type: 'apiKey',
+  in: 'header',
+  name: 'Authorization',
 };

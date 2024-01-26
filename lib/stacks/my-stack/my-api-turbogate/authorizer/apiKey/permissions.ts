@@ -6,8 +6,4 @@
 // Can be permanently deleted?      No, code that is regenerated on every `turbogate build` call will break, so fixing broken code after deleting this won't make sense.
 // Will be recreated?               If you delete this file and run `turbogate build` a boilerplate version of this file will be recreated.
 
-export const permissions = [
-  // 'MY_DYNAMO_1_READ',
-  // 'MY_DYNAMO_1_WRITE',
-  // 'MY_SQS_1_SEND_MESSAGE',
-] as const;
+export const permissions = [] as const;

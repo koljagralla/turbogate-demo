@@ -6,23 +6,18 @@
 // Can be permanently deleted?      No, generated code will break (so technically yes, if you fix loads of errors but you probably should not).
 // Will be recreated?               If you delete this file and run `turbogate build` a boilerplate version of this file will be recreated.
 import { InferResponseFromResponsesDeclaration, ResponsesDeclaration } from 'turbogate';
+import { zItemRecord } from '../../../../database/items/item-record';
 import { http400ValidationError } from '../../../shared/responses/http-400-validation-error';
 import { http500InternalServerError } from '../../../shared/responses/http-500-internal-server-error';
-import { http501NotImplemented } from '../../../shared/responses/http-501-not-implemented';
-import { z } from 'zod';
 
 export const responses = {
-  // Some common responses are already defined for you.
-  // You can change them in the shared/responses folder if you want.
   ...http400ValidationError,
   ...http500InternalServerError,
-  ...http501NotImplemented,
 
-  // Example for a custom success response
-  // 200: {
-  //   description: 'Everything is allright.',
-  //   schema: z.object({ message: z.string() }),
-  // },
+  201: {
+    description: 'The item was created successfully. The whole created item is returned.',
+    schema: zItemRecord,
+  },
 } as const satisfies ResponsesDeclaration;
 
 export type Response = InferResponseFromResponsesDeclaration<typeof responses>;

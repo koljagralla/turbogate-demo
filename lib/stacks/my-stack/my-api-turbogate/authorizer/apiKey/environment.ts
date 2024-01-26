@@ -9,8 +9,7 @@ import { Env, EnvironmentDefinition } from 'turbogate';
 import { ZodType, z } from 'zod';
 
 export const zEnvironment = z.object({
-  // MY_ENV_VAR: Env.string,
-  // ANOTHER_VAR_THAT_SHOULD_BE_A_NUMBER: Env.number,
+  VALID_API_KEYS: Env.list,
 }) satisfies ZodType<any, any, EnvironmentDefinition>;
 
 export type Environment = z.infer<typeof zEnvironment>;

@@ -9,8 +9,7 @@ import { AutoSerializedAuthorizerContextZodType } from 'turbogate';
 import { z } from 'zod';
 
 export const zContext = z.object({
-  // myContextValue: z.string(),
-  // myOtherContextValue: z.object({/**... */})
+  apiKey: z.string(),
 }) satisfies AutoSerializedAuthorizerContextZodType<any>;
 
 export type Context = z.infer<typeof zContext>;

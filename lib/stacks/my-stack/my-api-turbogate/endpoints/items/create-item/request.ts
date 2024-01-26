@@ -7,9 +7,10 @@
 // Will be recreated?               If you delete this file and run `turbogate build` a boilerplate version of this file will be recreated.
 import { RequestDefinition } from 'turbogate';
 import { ZodType, z } from 'zod';
+import { zItemRecord } from '../../../../database/items/item-record';
 
 export const zRequest = z.object({
-  body: z.undefined(),
+  body: zItemRecord.omit({ id: true }),
   pathParameters: z.object({}),
   queryParameters: z.object({}),
   headers: z.object({}),

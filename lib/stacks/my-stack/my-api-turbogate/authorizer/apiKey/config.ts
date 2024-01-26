@@ -7,6 +7,7 @@
 // Will be recreated?               If you delete this file and run `turbogate build` a boilerplate version of this file will be recreated.
 import { LambdaRequestAuthorizerConfig } from 'turbogate';
 import { defaultConfig } from '../../config/default-config';
+import { IdentitySource } from 'aws-cdk-lib/aws-apigateway';
 
 export const config: LambdaRequestAuthorizerConfig = {
   lambda: {
@@ -14,5 +15,6 @@ export const config: LambdaRequestAuthorizerConfig = {
   },
   requestAuthorizer: {
     ...defaultConfig.requestAuthorizer,
+    identitySources: [IdentitySource.header('Authorization')],
   },
 };
