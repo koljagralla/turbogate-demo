@@ -12,34 +12,34 @@ const spec: TurbogateSpec = {
   },
   authorizers: {
     // Declare one lambda request authorizer
-    basicAuth: {
+    apiKey: {
       type: 'lambdaRequestAuthorizer',
     },
   },
   // Basic endpoints declaration with a CRUD API for resource item.
   // Read operations are public, write operations are protected by the basicAuth authorizer.
   endpoints: {
-    '/items/{id}': {
-      GET: {
-        name: 'get-item',
-      },
-      PUT: {
-        name: 'update-item',
-        authorizer: 'basicAuth',
-      },
-      DELETE: {
-        name: 'delete-item',
-        authorizer: 'basicAuth',
-      },
-    },
+    // '/items/{id}': {
+    //   GET: {
+    //     name: 'get-item',
+    //   },
+    //   PUT: {
+    //     name: 'update-item',
+    //     authorizer: 'apiKey',
+    //   },
+    //   DELETE: {
+    //     name: 'delete-item',
+    //     authorizer: 'apiKey',
+    //   },
+    // },
     '/items': {
       POST: {
         name: 'create-item',
-        authorizer: 'basicAuth',
+        authorizer: 'apiKey',
       },
-      GET: {
-        name: 'list-items',
-      },
+      // GET: {
+      //   name: 'list-items',
+      // },
     },
   },
 };
